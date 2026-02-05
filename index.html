@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben 10 - Omnitrix Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="background-layer">
+        <div class="glow-ring glow-ring-1"></div>
+        <div class="glow-ring glow-ring-2"></div>
+        <div class="effect-overlay"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/ben10-logo.png" alt="Ben 10" class="logo">
+        </div>
+        <nav class="header-nav">
+            <a href="about.html" class="nav-link">About Creator</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Left Alien Section -->
+        <section class="alien-section left-section">
+            <div class="alien-container">
+                <div class="alien-card" data-alien="heatblast">
+                    <img src="images/heatblast.png" alt="Heatblast" class="alien-image">
+                    <div class="alien-glow"></div>
+                </div>
+                <div class="alien-card" data-alien="diamondhead">
+                    <img src="images/diamondhead.png" alt="Diamondhead" class="alien-image">
+                    <div class="alien-glow"></div>
+                </div>
+                <div class="alien-card" data-alien="swampfire">
+                    <img src="images/swampfire.png" alt="Swampfire" class="alien-image">
+                    <div class="alien-glow"></div>
+                </div>
+            </div>
+            <div class="alien-details left-details">
+                <div class="details-content">
+                    <h2 class="alien-name"></h2>
+                    <p class="alien-description"></p>
+                    <div class="alien-powers"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Alien Section -->
+        <section class="alien-section right-section">
+            <div class="alien-details right-details">
+                <div class="details-content">
+                    <h2 class="alien-name"></h2>
+                    <p class="alien-description"></p>
+                    <div class="alien-powers"></div>
+                </div>
+            </div>
+            <div class="alien-container">
+                <div class="alien-card" data-alien="fourarms">
+                    <img src="images/fourarms.png" alt="Four Arms" class="alien-image">
+                    <div class="alien-glow"></div>
+                </div>
+                <div class="alien-card" data-alien="xlr8">
+                    <img src="images/xlr8.jpg" alt="XLR8" class="alien-image">
+                    <div class="alien-glow"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Audio Elements -->
+    <audio id="backgroundSound" loop preload="auto">
+        <source src="sounds/activate.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="transformationSound" preload="auto">
+        <source src="sounds/transformation-sound.mp3" type="audio/mpeg">
+    </audio>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

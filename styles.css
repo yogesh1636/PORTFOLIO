@@ -1,0 +1,421 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', monospace;
+    background: #0a0a0a;
+    color: #00ff41;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Background Layer */
+.background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('images/effect.jpg') center/cover no-repeat;
+}
+
+.background-layer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 65, 0.1));
+}
+
+.effect-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.glow-ring {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: rotate 20s linear infinite;
+}
+
+.glow-ring-1 {
+    top: 20%;
+    left: 10%;
+    background: url('images/glow-ring.jpg') center/cover no-repeat;
+    animation-duration: 25s;
+}
+
+.glow-ring-2 {
+    bottom: 20%;
+    right: 10%;
+    background: url('images/glow-ring1.png') center/cover no-repeat;
+    animation-duration: 30s;
+    animation-direction: reverse;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #00ff41;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.nav-link:hover {
+    background: rgba(0, 255, 65, 0.1);
+    border-color: #00ff41;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+.logo-container {
+    display: inline-block;
+    animation: logoGlow 3s ease-in-out infinite;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 20px #00ff41);
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 30px #00ff41);
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    padding: 100px 20px 20px;
+    gap: 40px;
+}
+
+.alien-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    min-height: 60vh;
+}
+
+.left-section {
+    justify-content: flex-start;
+}
+
+.right-section {
+    justify-content: flex-end;
+}
+
+/* Alien Container */
+.alien-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 10;
+}
+
+.alien-card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid rgba(0, 255, 65, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.alien-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.alien-card:hover::before {
+    opacity: 1;
+}
+
+.alien-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: all 0.4s ease;
+    filter: brightness(0.9) contrast(1.2) drop-shadow(0 0 15px #00ff41);
+    background: transparent;
+}
+
+.alien-card:hover .alien-image {
+    transform: scale(1.15);
+    filter: brightness(1.2) contrast(1.4) saturate(1.3) drop-shadow(0 0 25px #00ff41);
+}
+
+.alien-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 25px;
+    background: radial-gradient(circle, rgba(0, 255, 65, 0.4) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.alien-card:hover .alien-glow {
+    opacity: 1;
+    animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+.alien-card:hover {
+    transform: scale(1.05) translateY(-10px);
+    border-color: #00ff41;
+    box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3);
+}
+
+/* Alien Details */
+.alien-details {
+    flex: 1;
+    max-width: 400px;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+}
+
+.left-details {
+    transform: translateX(-50px);
+}
+
+.alien-details.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.details-content {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+}
+
+.details-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.alien-details.active .details-content::before {
+    left: 100%;
+}
+
+.alien-name {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #00ff41, #00cc33);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.alien-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #cccccc;
+}
+
+.alien-powers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.power-tag {
+    background: rgba(0, 255, 65, 0.2);
+    border: 1px solid #00ff41;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes logoGlow {
+    0%, 100% { filter: drop-shadow(0 0 20px #00ff41); }
+    50% { filter: drop-shadow(0 0 30px #00ff41); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+        gap: 60px;
+        padding: 120px 20px 40px;
+    }
+    
+    .alien-section {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .alien-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .alien-details {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 50px;
+    }
+    
+    .alien-card {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .alien-name {
+        font-size: 2rem;
+    }
+    
+    .alien-description {
+        font-size: 1rem;
+    }
+    
+    .glow-ring {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 100px 15px 30px;
+    }
+    
+    .alien-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .alien-card {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .details-content {
+        padding: 20px;
+    }
+    
+    .alien-name {
+        font-size: 1.5rem;
+    }
+}
